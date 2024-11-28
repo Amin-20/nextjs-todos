@@ -8,12 +8,11 @@ export async function getServerSideProps() {
     return { props: { todos } };
   } catch (error) {
     console.error("Failed to fetch todos:", error);
-    return { props: { todos: [] } }; // Return an empty array if there's an error
+    return { props: { todos: [] } };
   }
 }
 
 export default function TodosPage({ todos }) {
-  // Handle the case where `todos` might be undefined
   if (!todos || todos.length === 0) {
     return <p>No todos found.</p>;
   }
